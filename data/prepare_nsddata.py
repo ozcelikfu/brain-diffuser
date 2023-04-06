@@ -65,7 +65,7 @@ def loadmat(filename):
 
 
 
-stim_order_f = '/home/furkan/NSD/nsddata/experiments/nsd/nsd_expdesign.mat'
+stim_order_f = 'nsddata/experiments/nsd/nsd_expdesign.mat'
 stim_order = loadmat(stim_order_f)
 
 
