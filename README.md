@@ -25,3 +25,9 @@ Code will be available soon!
     python prepare_nsddata.py -sub 5
     python prepare_nsddata.py -sub 7
 	```
+
+### First Stage Reconstruction with VDVAE
+
+1. Extract VDVAE latent features of stimuli images for any subject 'x' using `python scripts/vdvae_extract_features.py -sub x`
+2. Train regression models from fMRI to VDVAE latent features and save test predictions using `python scripts/vdvae_regression.py -sub x`
+3. Reconstruct images from predicted test features using `python scripts/vdvae_reconstruct_images.py -sub x`
