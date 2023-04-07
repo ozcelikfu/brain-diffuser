@@ -44,7 +44,7 @@ wget https://openaipublic.blob.core.windows.net/very-deep-vaes-assets/vdvae-asse
 
 1. Download pretrained Versatile Diffusion model "vd-four-flow-v1-0-fp16.pth" from ["HuggingFace"](https://huggingface.co/shi-labs/versatile-diffusion/tree/main/pretrained_pth)
 2. Extract CLIP-Text features of captions for any subject 'x' using `python scripts/cliptext_extract_features.py -sub x`
-3. Extract CLIP-Vision features of stimuli images for any subject 'x' using `python scripts/vdvae_extract_features.py -sub x`
+3. Extract CLIP-Vision features of stimuli images for any subject 'x' using `python scripts/clipvision_extract_features.py -sub x`
 4. Train regression models from fMRI to CLIP-Text features and save test predictions using `python scripts/cliptext_regression.py -sub x`
 5. Train regression models from fMRI to CLIP-Vision features and save test predictions using `python scripts/clipvision_regression.py -sub x`
 6. Reconstruct images from predicted test features using `python scripts/versatilediffusion_reconstruct_images.py -sub x` . This code is written as you are using two 12GB GPUs but you may edit according to your setup. 
