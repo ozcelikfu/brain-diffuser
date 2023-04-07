@@ -47,3 +47,8 @@ wget https://openaipublic.blob.core.windows.net/very-deep-vaes-assets/vdvae-asse
 4. Train regression models from fMRI to CLIP-Text features and save test predictions using `python scripts/cliptext_regression.py -sub x`
 5. Train regression models from fMRI to CLIP-Vision features and save test predictions using `python scripts/clipvision_regression.py -sub x`
 6. Reconstruct images from predicted test features using `python scripts/versatilediffusion_reconstruct_images.py -sub x`
+
+## References
+- Codes in vdvae directory are derived from [openai/vdvae](https://github.com/openai/vdvae)
+- Codes in versatile_diffusion directory are derived from earlier version of[SHI-Labs/Versatile-Diffusion](https://github.com/SHI-Labs/Versatile-Diffusion)
+- Dataset used in the studies are obtained from [Natural Scenes Dataset](https://naturalscenesdataset.org/)
