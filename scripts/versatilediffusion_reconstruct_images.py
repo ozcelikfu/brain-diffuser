@@ -1,3 +1,5 @@
+import sys
+sys.path.append('versatile_diffusion')
 import os
 import os.path as osp
 import PIL

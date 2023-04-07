@@ -1,5 +1,5 @@
 import sys
-sys.path.append('vdvae')
+sys.path.append('versatile_diffusion')
 import os
 import numpy as np
 
