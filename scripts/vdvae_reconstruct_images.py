@@ -133,6 +133,6 @@ for i in range(int(np.ceil(len(test_images)/batch_size))):
       im = sample_from_latent[j]
       im = Image.fromarray(im)
       im = im.resize((512,512),resample=3)
-      im.save('results/vdvae/subj{:02d}/{}.png'.format(i*batch_size+j))
+      im.save('results/vdvae/subj{:02d}/{}.png'.format(sub,i*batch_size+j))
       
 
