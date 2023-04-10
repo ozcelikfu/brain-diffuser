@@ -6,7 +6,8 @@ import argparse
 parser = argparse.ArgumentParser(description='Argument Parser')
 parser.add_argument("-sub", "--sub",help="Subject Number",default=1)
 args = parser.parse_args()
-sub=args.sub
+sub=int(args.sub)
+assert sub in [1,2,5,7]
 
 train_path = 'processed_data/subj{:02d}/nsd_train_fmriavg_nsdgeneral_sub{}.npy'.format(sub,sub)
 train_fmri = np.load(train_path)

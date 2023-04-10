@@ -28,9 +28,10 @@ parser.add_argument("-sub", "--sub",help="Subject Number",default=1)
 parser.add_argument("-diff_str", "--diff_str",help="Diffusion Strength",default=0.75)
 parser.add_argument("-mix_str", "--mix_str",help="Mixing Strength",default=0.4)
 args = parser.parse_args()
-sub=args.sub
-strength = args.diff_str
-mixing = args.mix_str
+sub=int(args.sub)
+assert sub in [1,2,5,7]
+strength = float(args.diff_str)
+mixing = float(args.mix_str)
 
 
 def regularize_image(x):

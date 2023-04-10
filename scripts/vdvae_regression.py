@@ -4,9 +4,9 @@ import sklearn.linear_model as skl
 import argparse
 parser = argparse.ArgumentParser(description='Argument Parser')
 parser.add_argument("-sub", "--sub",help="Subject Number",default=1)
-parser.add_argument("-bs", "--bs",help="Batch Size",default=30)
 args = parser.parse_args()
-sub=args.sub
+sub=int(args.sub)
+assert sub in [1,2,5,7]
 
 nsd_features = np.load('data/extracted_features/subj{:02d}/nsd_vdvae_features_31l.npz'.format(sub))
 train_latents = nsd_features['train_latents']

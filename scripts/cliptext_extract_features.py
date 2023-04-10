@@ -18,7 +18,8 @@ import argparse
 parser = argparse.ArgumentParser(description='Argument Parser')
 parser.add_argument("-sub", "--sub",help="Subject Number",default=1)
 args = parser.parse_args()
-sub=args.sub
+sub=int(args.sub)
+assert sub in [1,2,5,7]
 
 cfgm_name = 'vd_noema'
 pth = 'versatile_diffusion/pretrained/vd-four-flow-v1-0-fp16.pth'
