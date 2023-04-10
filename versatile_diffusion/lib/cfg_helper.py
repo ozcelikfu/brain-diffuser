@@ -101,7 +101,7 @@ def cfg_solve(cfg, cfg_root):
 
 class model_cfg_bank(object):
     def __init__(self):
-        self.cfg_dir = osp.join('configs', 'model')
+        self.cfg_dir = osp.join('versatile_diffusion/configs', 'model')
         self.cfg_bank = edict()
     
     def __call__(self, name):
