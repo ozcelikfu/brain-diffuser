@@ -39,7 +39,7 @@ num_embed, num_features, num_test, num_train = 77, 768, len(test_caps), len(trai
 train_clip = np.zeros((num_train,num_embed, num_features))
 test_clip = np.zeros((num_test,num_embed, num_features))
 with torch.no_grad():
-    for i,annots in enumerate(val_caps):
+    for i,annots in enumerate(test_caps):
         cin = list(annots[annots!=''])
         print(i)
         c = net.clip_encode_text(cin)
