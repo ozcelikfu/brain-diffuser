@@ -38,7 +38,7 @@ optimus_bert_tokenizer:
   args:
     do_lower_case: false 
     max_len: 512
-    vocab_file: lib/model_zoo/optimus_models/vocab/bert-base-cased-vocab.txt
+    vocab_file: versatile_diffusion/lib/model_zoo/optimus_models/vocab/bert-base-cased-vocab.txt
 
 optimus_gpt2_decoder:
   super_cfg: optimus
@@ -86,13 +86,13 @@ optimus_gpt2_tokenizer:
   args:
     do_lower_case: false 
     max_len: 1024
-    vocab_file: lib/model_zoo/optimus_models/vocab/gpt2-vocab.json
-    merges_file: lib/model_zoo/optimus_models/vocab/gpt2-merges.txt
+    vocab_file: versatile_diffusion/lib/model_zoo/optimus_models/vocab/gpt2-vocab.json
+    merges_file: versatile_diffusion/lib/model_zoo/optimus_models/vocab/gpt2-merges.txt
 
 optimus_vae:
   super_cfg: optimus
   type: optimus_vae
-  pth: pretrained/optimus-vae.pth
+  pth: versatile_diffusion/pretrained/optimus-vae.pth
   args:
     encoder: MODEL(optimus_bert_encoder)
     decoder: MODEL(optimus_gpt2_decoder)
