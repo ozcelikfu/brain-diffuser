@@ -17,7 +17,7 @@ The following are a few reconstructions obtained :
 	cd data
 	python download_nsddata.py
 	```
-2. Download "COCO_73k_annots_curated.npy" file from ["HuggingFace NSD"](https://huggingface.co/datasets/pscotti/naturalscenesdataset/tree/main)
+2. Download "COCO_73k_annots_curated.npy" file from [HuggingFace NSD](https://huggingface.co/datasets/pscotti/naturalscenesdataset/tree/main)
 3. Prepare NSD data for the Reconstruction Task:
     ```
 	cd data
@@ -42,7 +42,7 @@ wget https://openaipublic.blob.core.windows.net/very-deep-vaes-assets/vdvae-asse
 
 ### Second Stage Reconstruction with Versatile Diffusion
 
-1. Download pretrained Versatile Diffusion model "vd-four-flow-v1-0-fp16.pth", "kl-f8.pth" and "optimus-vae.pth" from ["HuggingFace"](https://huggingface.co/shi-labs/versatile-diffusion/tree/main/pretrained_pth) and put them in `versatile_diffusion/pretrained/` folder
+1. Download pretrained Versatile Diffusion model "vd-four-flow-v1-0-fp16-deprecated.pth", "kl-f8.pth" and "optimus-vae.pth" from [HuggingFace](https://huggingface.co/shi-labs/versatile-diffusion/tree/main/pretrained_pth) and put them in `versatile_diffusion/pretrained/` folder
 2. Extract CLIP-Text features of captions for any subject 'x' using `python scripts/cliptext_extract_features.py -sub x`
 3. Extract CLIP-Vision features of stimuli images for any subject 'x' using `python scripts/clipvision_extract_features.py -sub x`
 4. Train regression models from fMRI to CLIP-Text features and save test predictions using `python scripts/cliptext_regression.py -sub x`
