@@ -12,9 +12,9 @@ nsd_features = np.load('data/extracted_features/subj{:02d}/nsd_vdvae_features_31
 train_latents = nsd_features['train_latents']
 test_latents = nsd_features['test_latents']
 
-train_path = 'processed_data/subj{:02d}/nsd_train_fmriavg_nsdgeneral_sub{}.npy'.format(sub,sub)
+train_path = 'data/processed_data/subj{:02d}/nsd_train_fmriavg_nsdgeneral_sub{}.npy'.format(sub,sub)
 train_fmri = np.load(train_path)
-test_path = 'processed_data/subj{:02d}/nsd_test_fmriavg_nsdgeneral_sub{}.npy'.format(sub,sub)
+test_path = 'data/processed_data/subj{:02d}/nsd_test_fmriavg_nsdgeneral_sub{}.npy'.format(sub,sub)
 test_fmri = np.load(test_path)
 
 ## Preprocessing fMRI
