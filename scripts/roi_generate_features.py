@@ -38,12 +38,18 @@ roi_act[roi_act<0]=0
 
 # Generate VDVAE Features
 
-
+nsd_features = np.load('data/extracted_features/subj{:02d}/nsd_vdvae_features_31l.npz'.format(sub))
+train_latents = nsd_features['train_latents']
 
 pred_vae = (roi_act @ reg_w.T) 
 pred_vae = pred_vae / (np.linalg.norm(pred_vae,axis=1).reshape((num_rois,1)) + 1e-8)
 pred_vae = pred_vae * 50 + reg_b
 
+pred_vae = (pred_vae - np.mean(pred_vae,axis=0)) / np.std(pred_vae,axis=0)
+
+pred_vae = pred_vae * np.std(train_latents,axis=0) + np.mean(train_latents,axis=0)
+pred_vae = pred_vae / np.linalg.norm(pred_vae,axis=1).reshape((num_rois,1))
+pred_vae = pred_vae * 80
 np.save('data/predicted_features/subj{:02d}/nsd_vdvae_nsdgeneral_roi_sub{}_31l_alpha50k.npy'.format(sub,sub),pred_vae)
 
 # Generate CLIP-Text Features
