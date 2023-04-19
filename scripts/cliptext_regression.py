@@ -41,10 +41,15 @@ test_clip = np.load('data/extracted_features/subj{:02d}/nsd_cliptext_test.npy'.f
 num_samples,num_embed,num_dim = train_clip.shape
 
 print("Training Regression")
+reg_w = np.zeros((num_embed,num_dim,num_voxels)).astype(np.float32)
+reg_b = np.zeros((num_embed,num_dim)).astype(np.float32)
 pred_clip = np.zeros_like(test_clip)
 for i in range(num_embed):
     reg = skl.Ridge(alpha=100000, max_iter=50000, fit_intercept=True)
     reg.fit(train_fmri, train_clip[:,i])
+    reg_w[i] = reg.coef_
+    reg_b[i] = reg.intercept_
+    
     pred_test_latent = reg.predict(test_fmri)
     std_norm_test_latent = (pred_test_latent - np.mean(pred_test_latent,axis=0)) / np.std(pred_test_latent,axis=0)
     pred_clip[:,i] = std_norm_test_latent * np.std(train_clip[:,i],axis=0) + np.mean(train_clip[:,i],axis=0)
@@ -53,3 +58,11 @@ for i in range(num_embed):
 np.save('data/predicted_features/subj{:02d}/nsd_cliptext_predtest_nsdgeneral.npy'.format(sub),pred_clip)
 
 
+datadict = {
+    'weight' : reg_w,
+    'bias' : reg_b,
+
+}
+
+with open('data/regression_weights/subj{:02d}/cliptext_regression_weights.pkl'.format(sub),"wb") as f:
+  pickle.dump(datadict,f)

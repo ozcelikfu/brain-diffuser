@@ -49,3 +49,11 @@ print(reg.score(test_fmri,test_latents))
 np.save('data/predicted_features/subj{:02d}/nsd_vdvae_nsdgeneral_pred_sub{}_31l_alpha50k.npy'.format(sub,sub),pred_latents)
 
 
+datadict = {
+    'weight' : reg.coef_,
+    'bias' : reg.intercept_,
+
+}
+
+with open('data/regression_weights/subj{:02d}/vdvae_regression_weights.pkl'.format(sub),"wb") as f:
+  pickle.dump(datadict,f)
