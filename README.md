@@ -49,7 +49,14 @@ wget https://openaipublic.blob.core.windows.net/very-deep-vaes-assets/vdvae-asse
 5. Train regression models from fMRI to CLIP-Vision features and save test predictions using `python scripts/clipvision_regression.py -sub x`
 6. Reconstruct images from predicted test features using `python scripts/versatilediffusion_reconstruct_images.py -sub x` . This code is written as you are using two 12GB GPUs but you may edit according to your setup. 
 
+### ROI Analysis
+It has a bug that prevents to get the exact results but provides an approximation for most of ROIs, hopefully will be fixed soon.
+1. Extract ROI fMRI activations for any subject 'x' using `python scripts/roi_extract.py -sub x`
+2. Generate VDVAE, CLIP-Text, CLIP-Vision features forom synthetic fMRI using `python scripts/roi_generate_features.py -sub x`
+3. Generate VDVAE reconstructions for ROIs using `python scripts/roi_vdvae_reconstruct.py -sub x`
+4. Generate Versatile Diffusion reconstructions for ROIs using `python scripts/roi_versatilediffusion_reconstruct.py -sub x`
+
 ## References
 - Codes in vdvae directory are derived from [openai/vdvae](https://github.com/openai/vdvae)
-- Codes in versatile_diffusion directory are derived from earlier version of[SHI-Labs/Versatile-Diffusion](https://github.com/SHI-Labs/Versatile-Diffusion)
+- Codes in versatile_diffusion directory are derived from earlier version of [SHI-Labs/Versatile-Diffusion](https://github.com/SHI-Labs/Versatile-Diffusion)
 - Dataset used in the studies are obtained from [Natural Scenes Dataset](https://naturalscenesdataset.org/)
