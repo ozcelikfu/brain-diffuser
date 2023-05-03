@@ -49,6 +49,14 @@ wget https://openaipublic.blob.core.windows.net/very-deep-vaes-assets/vdvae-asse
 5. Train regression models from fMRI to CLIP-Vision features and save test predictions using `python scripts/clipvision_regression.py -sub x`
 6. Reconstruct images from predicted test features using `python scripts/versatilediffusion_reconstruct_images.py -sub x` . This code is written as you are using two 12GB GPUs but you may edit according to your setup. 
 
+
+### Quantitative Evaluation
+Although results are expected to be similar, it may vary because of variations at reconstruction
+1. Save test images to directory `python scripts/save_test_images.py`
+2. Extract evaluation features for test images using `python scripts/eval_extract_features.py -sub 0`
+3. Extract evaluation features for reconstructed images of any subject using `python scripts/eval_extract_features.py -sub x`
+4. Obtain quantitative metric results for each subject using`python scripts/evaluate_reconstruction.py -sub x`
+
 ### ROI Analysis
 It has a bug that prevents to get the exact results but provides an approximation for most of ROIs, hopefully will be fixed soon.
 1. Extract ROI fMRI activations for any subject 'x' using `python scripts/roi_extract.py -sub x`
